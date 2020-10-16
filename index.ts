@@ -5,7 +5,12 @@ import { freeze as api01_freeze } from "./api01";
 import { freeze as api02_freeze } from "./api02";
 import { freeze as api03_freeze } from "./api03";
 import { freeze as api04_freeze } from "./api04";
+import { freeze as api05_freeze } from "./api05";
 import { FrozenError } from "./frozen-error";
+
+console.log(api05_freeze({ v: "api05" }));
+assertThrowsFrozenError({ v: "api05a", unfreezable: true }, api05_freeze);
+console.log(api05_freeze({ v: "api05b", unfreezable: false }));
 
 assertThrowsFrozenError("this function never returns", throwFrozenError);
 
