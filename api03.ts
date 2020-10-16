@@ -10,5 +10,5 @@ export function freeze(toFreeze: unknown): unknown {
   }
   // at this point we know that `toFreeze` has the type `Unfreezable`
   const unfreezable: Unfreezable = toFreeze;
-  throw new FrozenError(toFreeze);
+  throw new FrozenError(unfreezable);
 }
