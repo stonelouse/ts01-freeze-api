@@ -7,7 +7,15 @@ import { freeze as api03_freeze } from "./api03";
 import { freeze as api04_freeze } from "./api04";
 import { freeze as api05_freeze } from "./api05";
 import { freeze as api06_freeze } from "./api06";
+import { freeze as api07_freeze } from "./api07";
 import { FrozenError } from "./frozen-error";
+import { Freezable } from "./freezable";
+
+// what a hack.
+const freezable: Freezable = ({
+  v: "api07"
+} as unknown) as Freezable;
+console.log(api07_freeze(freezable));
 
 // Compile-error:
 // Argument of type '{ v: string; }' is not assignable to parameter of type 'Freezable'.
