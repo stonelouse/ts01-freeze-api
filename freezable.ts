@@ -1,10 +1,9 @@
+import { FrozenError } from "./frozen-error";
+
 // `Freezable` is defined as an object
 // ... which never has an `unfreezable` property
 // or
 // An object with a value for the `unfreezable` property
-
-import { FrozenError } from "./frozen-error";
-
 // ... is never assignable to `Freezable`
 export type Freezable = {
   unfreezable: never;

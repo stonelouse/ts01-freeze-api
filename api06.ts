@@ -1,7 +1,7 @@
 import { doTheMagic } from "./the-magic";
 import { Freezable, assertFreezable } from "./freezable";
 
-export function freeze(toFreeze: unknown): unknown {
+export function freeze(toFreeze: Freezable): unknown {
   assertFreezable(toFreeze);
 
   // Any code that is executed after the `Assertion guard`
