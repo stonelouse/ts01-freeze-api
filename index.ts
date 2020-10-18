@@ -8,8 +8,13 @@ import { freeze as api04_freeze } from "./api04";
 import { freeze as api05_freeze } from "./api05";
 import { freeze as api06_freeze } from "./api06";
 import { freeze as api07_freeze } from "./api07";
+import { freeze as api08_freeze } from "./api08";
 import { FrozenError } from "./frozen-error";
 import { Freezable } from "./freezable";
+
+console.log(api08_freeze({ v: "api08" }));
+assertThrowsFrozenError({ v: "api08a", unfreezable: true }, api08_freeze);
+console.log(api08_freeze({ v: "api08b", unfreezable: false }));
 
 // what a hack.
 const freezable: Freezable = ({
