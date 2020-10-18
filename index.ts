@@ -9,8 +9,20 @@ import { freeze as api05_freeze } from "./api05";
 import { freeze as api06_freeze } from "./api06";
 import { freeze as api07_freeze } from "./api07";
 import { freeze as api08_freeze } from "./api08";
+import { freeze as api09_freeze } from "./api09";
+import { freeze as api10_freeze } from "./api10"; // TODO
+import { thaw as api10_thaw } from "./api10"; // TODO
 import { FrozenError } from "./frozen-error";
 import { Freezable } from "./freezable";
+import { Frozen } from "./frozen";
+
+// TODO demo for api10
+
+console.log(api09_freeze(({ v: "api09" } as unknown) as Freezable)); // again: What a hack
+assertThrowsFrozenError({ v: "api09a", unfreezable: true }, api09_freeze); // again: What a hack
+console.log(
+  api09_freeze(({ v: "api09b", unfreezable: false } as unknown) as Freezable)
+);
 
 console.log(api08_freeze({ v: "api08" }));
 assertThrowsFrozenError({ v: "api08a", unfreezable: true }, api08_freeze);

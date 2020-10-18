@@ -1,5 +1,5 @@
 import { Freezable } from "./freezable";
-import { Frozen } from "./frozen";
+import { Frozen, FrozenFreezable } from "./frozen";
 
 export function doTheMagic(toFreeze: any): any {
   // console.log({ toFreeze: toFreeze });
@@ -13,5 +13,12 @@ export function doTheLevelOneMagic(toFreeze: Freezable): unknown {
 
 export function doTheLevelTwoMagic<T>(toFreeze: T): Frozen<T> {
   (toFreeze as Frozen<T>).frozen = "❄️❄️";
+  return toFreeze as Frozen<T>;
+}
+
+export function doTheLevelThreeMagic<T extends Freezable>(
+  toFreeze: T
+): Frozen<T> {
+  (toFreeze as Frozen<T>).frozen = "❄️❄️❄️";
   return toFreeze as Frozen<T>;
 }
